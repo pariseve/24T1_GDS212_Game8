@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public SpriteRenderer sr;
 
+    public Sprite holdingStarSprite;
+    public Sprite defaultSprite;
+
+    private ItemCollection itemCollection;
+
 
     private bool isSprinting = false;
 
@@ -19,12 +24,14 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate; // Use interpolation for smoother movement
+
+        itemCollection = GetComponent<ItemCollection>();
     }
 
     void FixedUpdate()
     {
         MoveCharacter();
-
+        UpdateSprite();
     }
 
     void MoveCharacter()
@@ -66,6 +73,18 @@ public class PlayerController : MonoBehaviour
         if (x != 0)
         {
             sr.flipX = (x > 0);
+        }
+    }
+
+    void UpdateSprite()
+    {
+        if (itemCollection.isHoldingItem)
+        {
+            sr.sprite = holdingStarSprite;
+        }
+        else if (itemCollection.isHoldingItem == false)
+        {
+            sr.sprite = defaultSprite;
         }
     }
 }

@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemCollection : MonoBehaviour
 {
-    private bool isHoldingItem = false;
+    public bool isHoldingItem = false;
     private bool isHoldingStardust = false;
 
     public GameObject offeringLocation;
     private bool isNearDeposit = false;
 
     public int stardustAmount = 0;
+    public TextMeshProUGUI stardustText;
 
     void Update()
     {
@@ -72,6 +74,9 @@ public class ItemCollection : MonoBehaviour
 
     void AddStarDust()
     {
-        stardustAmount++;
+        stardustAmount += 10;
+
+        stardustText.text = stardustAmount.ToString() + "%";
     }
+
 }
