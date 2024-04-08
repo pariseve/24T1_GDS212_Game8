@@ -27,7 +27,7 @@ public class PurifySystem : MonoBehaviour
         {
             Debug.Log("Player detected!");
 
-            if (itemCollection.isHoldingStardust) // adding && Input.GetKeyDown(KeyCode.Space) breaks everything ??
+            if (itemCollection.isHoldingStardust && !isPure) // adding && Input.GetKeyDown(KeyCode.Space) breaks everything ??
             {
                 Debug.Log("The area has been purified!");
                 isPure = true;
