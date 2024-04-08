@@ -6,7 +6,7 @@ using TMPro;
 public class ItemCollection : MonoBehaviour
 {
     public bool isHoldingItem = false;
-    private bool isHoldingStardust = false;
+    public bool isHoldingStardust = false;
 
     public GameObject offeringLocation;
     private bool isNearDeposit = false;
@@ -77,6 +77,17 @@ public class ItemCollection : MonoBehaviour
         stardustAmount += 10;
 
         stardustText.text = stardustAmount.ToString() + "%";
+    }
+
+    public void RemoveStarDust()
+    {
+        stardustAmount -= 10;
+        stardustText.text = stardustAmount.ToString() + "%";
+
+        if(stardustAmount == 0)
+        {
+            isHoldingStardust = false;
+        }
     }
 
 }
