@@ -7,9 +7,10 @@ public class PurifySystem : MonoBehaviour
     ItemCollection itemCollection;
 
     public GameObject originalObjPrefab;
-    public GameObject newObjPrefab;
+    //public GameObject newObjPrefab;
 
     public bool isPure = false;
+    private bool hasEnteredArea = false;
 
     void Awake()
     {
@@ -20,24 +21,27 @@ public class PurifySystem : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // checks multiple times for the input (instead of only checking once on the trigger enter part
+        if (itemCollection.isHoldingStardust && !isPure && Input.GetKeyDown(KeyCode.Space) && hasEnteredArea) 
+        {
+            Debug.Log("The area has been purified!");
+            isPure = true;
+
+            itemCollection.RemoveStarDust();
+            originalObjPrefab.SetActive(false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            hasEnteredArea = true;
             Debug.Log("Player detected!");
 
-            if (itemCollection.isHoldingStardust && !isPure) // adding && Input.GetKeyDown(KeyCode.Space) breaks everything ??
-            {
-                Debug.Log("The area has been purified!");
-                isPure = true;
-
-                itemCollection.RemoveStarDust();
-            }
-            else
-            {
-                Debug.Log("Player has no stardust");
-            }
+          
         }
     }
 
@@ -46,6 +50,7 @@ public class PurifySystem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player has left area");
+            hasEnteredArea = false;
         }
     }
 

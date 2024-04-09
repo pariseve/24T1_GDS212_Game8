@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1850453236871484737}
   m_Layer: 0
   m_Name: Toxic Area
-  m_TagString: Untagged
+  m_TagString: Toxic Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjPrefab: {fileID: 0}
-  newObjPrefab: {fileID: 0}
+  isPure: 0

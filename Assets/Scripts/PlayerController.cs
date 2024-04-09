@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 8f;
-    public float sprintSpeed = 12f; // Adjust the sprint speed as needed
+    public float sprintSpeed = 12f;
+    public float jumpForce = 10f; // Added jump force
+    public float gravity = 20f; // Added gravity
     public float groundDistance = 0.1f;
-    public float smoothingFactor = 10f; // Adjust this value for smoother movement
+    public float smoothingFactor = 10f;
     public LayerMask groundLayer;
     public Rigidbody rb;
     public SpriteRenderer sr;
@@ -16,14 +16,15 @@ public class PlayerController : MonoBehaviour
     public Sprite defaultSprite;
 
     private ItemCollection itemCollection;
-
+    private bool isGrounded = false;
 
     private bool isSprinting = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.interpolation = RigidbodyInterpolation.Interpolate; // Use interpolation for smoother movement
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.useGravity = false; // Disable default gravity
 
         itemCollection = GetComponent<ItemCollection>();
     }
@@ -37,37 +38,36 @@ public class PlayerController : MonoBehaviour
     void MoveCharacter()
     {
         RaycastHit hit;
-        Vector3 castPos = transform.position + Vector3.up; // Slightly above the character
-        if (Physics.Raycast(castPos, -Vector3.up, out hit, Mathf.Infinity, groundLayer))
-        {
-            float targetY = hit.point.y + groundDistance;
-            Vector3 targetPosition = new Vector3(transform.position.x, targetY, transform.position.z);
+        Vector3 castPos = transform.position + Vector3.up;
 
-            // Apply smoothing to character's position
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smoothingFactor);
+        // Check if the player is grounded
+        isGrounded = Physics.Raycast(castPos, -Vector3.up, out hit, groundDistance, groundLayer);
+
+        // Apply gravity
+        if (!isGrounded)
+        {
+            rb.velocity += Vector3.down * gravity * Time.deltaTime;
         }
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            // Jump if grounded and space key is pressed
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        }
+
         // Check if the player is sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSprinting = true;
-        }
-        else
-        {
-            isSprinting = false;
-        }
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
 
         // Adjust speed based on sprinting state
         float currentSpeed = isSprinting ? sprintSpeed : speed;
 
         Vector3 moveDirection = new Vector3(x, 0, y).normalized * currentSpeed;
 
-
         // Apply movement directly to the Rigidbody for smoother physics
-        rb.velocity = moveDirection;
+        rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
 
         // Handle character orientation (flipping sprite)
         if (x != 0)
@@ -78,13 +78,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateSprite()
     {
-        if (itemCollection.isHoldingItem)
-        {
-            sr.sprite = holdingStarSprite;
-        }
-        else if (itemCollection.isHoldingItem == false)
-        {
-            sr.sprite = defaultSprite;
-        }
+        sr.sprite = itemCollection.isHoldingItem ? holdingStarSprite : defaultSprite;
     }
 }

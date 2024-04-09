@@ -16,11 +16,11 @@ public class ItemCollection : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isHoldingItem)
+        if (Input.GetKeyDown(KeyCode.Space) && !isHoldingItem)
         {
             TryPickupItem();
         }
-        else if (Input.GetKeyDown(KeyCode.E) && isHoldingItem && isNearDeposit)
+        else if (Input.GetKeyDown(KeyCode.Space) && isHoldingItem && isNearDeposit)
         {
             OfferItem();
         }
