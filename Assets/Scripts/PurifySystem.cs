@@ -11,6 +11,7 @@ public class PurifySystem : MonoBehaviour
 
     public bool isPure = false;
     private bool hasEnteredArea = false;
+    private int purifiedAreaCount = 0;
 
     void Awake()
     {
@@ -31,6 +32,8 @@ public class PurifySystem : MonoBehaviour
 
             itemCollection.RemoveStarDust();
             originalObjPrefab.SetActive(false);
+
+            purifiedAreaCount++;
         }
     }
 
@@ -52,8 +55,21 @@ public class PurifySystem : MonoBehaviour
             Debug.Log("Player has left area");
             hasEnteredArea = false;
         }
+
+
     }
 
+    public int GetPurifiedAreaCount()
+    {
+        return purifiedAreaCount;
+    }
+
+    private bool AllAreasPurified()
+    {
+        Debug.Log("Toxic areas found: " + GameObject.FindGameObjectsWithTag("ToxicArea").Length);
+        return purifiedAreaCount == GameObject.FindGameObjectsWithTag("ToxicArea").Length;
+    }
 
 }
+
 

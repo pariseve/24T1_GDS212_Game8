@@ -14,7 +14,9 @@ public class ItemCollection : MonoBehaviour
     public int stardustAmount = 0;
     public TextMeshProUGUI stardustText;
 
-    void Update()
+    private bool hasTriggeredDialogue = false;
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isHoldingItem)
         {
@@ -26,37 +28,44 @@ public class ItemCollection : MonoBehaviour
         }
     }
 
-    void TryPickupItem()
+    private void TryPickupItem()
     {
-        // Check for nearby items within the player's reach
         Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, 5f);
         foreach (Collider col in nearbyColliders)
         {
             if (col.CompareTag("Star"))
             {
-                // If an item (star) is found, pick it up
-                Destroy(col.gameObject); // Destroy the star GameObject
-                isHoldingItem = true; // Set the flag to indicate the player is holding an item
-                break; // Exit the loop after picking up the first item found
+                Destroy(col.gameObject);
+                isHoldingItem = true;
+                break;
             }
         }
     }
 
-    void OfferItem()
+    private void OfferItem()
     {
         if (isHoldingItem && isNearDeposit)
         {
-            // Give stardust to the player
-            isHoldingItem = false; 
-            isHoldingStardust = true; 
+            isHoldingItem = false;
+            isHoldingStardust = true;
             Debug.Log("You offered the star and received stardust!");
 
-            // Add stardust to the player's inventory
             AddStarDust();
+
+            if (!hasTriggeredDialogue)
+            {
+                DialogueStarter dialogueStarter = FindObjectOfType<DialogueStarter>();
+                if (dialogueStarter != null)
+                {
+                    dialogueStarter.hasFollowedTutorial = true;
+                    dialogueStarter.SecondDialogue();
+                }
+                hasTriggeredDialogue = true;
+            }
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == offeringLocation)
         {
@@ -64,7 +73,7 @@ public class ItemCollection : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == offeringLocation)
         {
@@ -72,10 +81,9 @@ public class ItemCollection : MonoBehaviour
         }
     }
 
-    void AddStarDust()
+    private void AddStarDust()
     {
         stardustAmount += 10;
-
         stardustText.text = stardustAmount.ToString() + "%";
     }
 
@@ -84,10 +92,9 @@ public class ItemCollection : MonoBehaviour
         stardustAmount -= 10;
         stardustText.text = stardustAmount.ToString() + "%";
 
-        if(stardustAmount == 0)
+        if (stardustAmount == 0)
         {
             isHoldingStardust = false;
         }
     }
-
 }

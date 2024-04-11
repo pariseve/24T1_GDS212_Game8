@@ -1578,6 +1578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toxic Area (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: newObjPrefab
@@ -1588,7 +1593,8 @@ PrefabInstance:
         type: 3}
       propertyPath: originalObjPrefab
       value: 
-      objectReference: {fileID: 123381027}
+      objectReference: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
     - target: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1654,12 +1660,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec5f46effa162a43b843368f2f1bdc4, type: 3}
---- !u!1 &123381027 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
-    type: 3}
-  m_PrefabInstance: {fileID: 123381026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &123381032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
@@ -3042,6 +3042,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266323559}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &289404283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859694527578811846, guid: d3fc513c71a9d5e4486dafd19d6eaea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622617526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &296723717
 GameObject:
   m_ObjectHideFlags: 0
@@ -9254,6 +9260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toxic Area (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: newObjPrefab
@@ -10927,6 +10938,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Toxic Area (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
@@ -13500,6 +13516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toxic Area (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: newObjPrefab
@@ -13510,7 +13531,8 @@ PrefabInstance:
         type: 3}
       propertyPath: originalObjPrefab
       value: 
-      objectReference: {fileID: 1582814351}
+      objectReference: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
     - target: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -13576,12 +13598,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec5f46effa162a43b843368f2f1bdc4, type: 3}
---- !u!1 &1582814351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1582814350}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1582814356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
@@ -17069,6 +17085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toxic Area (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: newObjPrefab
@@ -17079,7 +17100,8 @@ PrefabInstance:
         type: 3}
       propertyPath: originalObjPrefab
       value: 
-      objectReference: {fileID: 1975643987}
+      objectReference: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
     - target: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -17150,12 +17172,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec5f46effa162a43b843368f2f1bdc4, type: 3}
---- !u!1 &1975643987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1975643986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1975643992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8097757369508767760, guid: 3ec5f46effa162a43b843368f2f1bdc4,
@@ -18264,6 +18280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBehaviour: {fileID: 534816970}
   introDialogue: {fileID: 11400000, guid: 46f95530e31dc5f478d5c194f691a1b7, type: 2}
+  introDialogue2: {fileID: 11400000, guid: 0998d91667d57834ea54d72c9051537f, type: 2}
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -18294,6 +18311,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  tutorialStar: {fileID: 289404283}
+  itemCollection: {fileID: 1673690936}
+  hasFollowedTutorial: 0
 --- !u!1001 &2145572005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18427,8 +18447,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2147238132}
   - component: {fileID: 2147238131}
+  - component: {fileID: 2147238133}
+  - component: {fileID: 2147238134}
   m_Layer: 0
-  m_Name: Scene Manager
+  m_Name: Ending Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18464,6 +18486,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 517838681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2147238133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147238130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7329bc0b443ea4e88c822cb478a56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: EndScene
+--- !u!114 &2147238134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147238130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a4d92422a006c44a1fdae2d31d5a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingTrigger: {fileID: 2147238133}
 --- !u!1001 &765532857640719713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18642,6 +18690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Toxic Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 18890884860885938, guid: 3ec5f46effa162a43b843368f2f1bdc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1850453236871484737, guid: 3ec5f46effa162a43b843368f2f1bdc4,
         type: 3}

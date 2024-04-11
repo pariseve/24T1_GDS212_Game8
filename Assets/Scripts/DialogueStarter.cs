@@ -9,12 +9,25 @@ public class DialogueStarter : MonoBehaviour
 
     [SerializeField] private DialogBehaviour dialogBehaviour;
     [SerializeField] private DialogNodeGraph introDialogue;
+    [SerializeField] private DialogNodeGraph introDialogue2;
 
     [SerializeField] private UnityEvent triggerEvent;
     [SerializeField] private UnityEvent triggerEvent2;
 
+    public GameObject tutorialStar;
+
+    [SerializeField] ItemCollection itemCollection;
+    public bool hasFollowedTutorial = false;
+
     private void Start()
     {
+        itemCollection = FindObjectOfType<ItemCollection>();
+        if (itemCollection == null)
+        {
+            Debug.LogError("ItemCollection reference not found!");
+            return;
+        }
+
         dialogBehaviour.BindExternalFunction("Test", DebugExternal);
         dialogBehaviour.BindExternalFunction("function1", Function);
         dialogBehaviour.BindExternalFunction("function2", Function2);
@@ -36,4 +49,21 @@ public class DialogueStarter : MonoBehaviour
     {
         triggerEvent2.Invoke();
     }
+
+    public void SecondDialogue()
+    {
+        if (hasFollowedTutorial)
+        {
+            Debug.Log("Triggered Second Dialogue!");
+            dialogBehaviour.BindExternalFunction("Test", DebugExternal);
+            dialogBehaviour.BindExternalFunction("function1", Function);
+            dialogBehaviour.BindExternalFunction("function2", Function2);
+            dialogBehaviour.StartDialog(introDialogue2);
+        }
+        else
+        {
+            Debug.Log("Second dialogue condition not met!");
+        }
+    }
+
 }
