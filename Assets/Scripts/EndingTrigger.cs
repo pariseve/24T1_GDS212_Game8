@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using cherrydev;
 
 public class EndingTrigger : MonoBehaviour
 {
