@@ -24,6 +24,8 @@ namespace cherrydev
         private bool isDialogStarted;
         private bool isCurrentSentenceSkipped;
 
+        public bool isTalking = false;
+
         public bool IsCanSkippingText
         {
             get
@@ -91,6 +93,8 @@ namespace cherrydev
         public void StartDialog(DialogNodeGraph dialogNodeGraph)
         {
             isDialogStarted = true;
+
+            isTalking = true;
 
             if (dialogNodeGraph.nodesList == null)
             {
@@ -299,6 +303,7 @@ namespace cherrydev
                 else
                 {
                     isDialogStarted = false;
+                    isTalking = false;
 
                     onDialogFinished?.Invoke();
                 }

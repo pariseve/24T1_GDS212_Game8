@@ -11,8 +11,11 @@ namespace cherrydev
         [SerializeField] private SentencePanel dialogSentensePanel;
         [SerializeField] private AnswerPanel dialogAnswerPanel;
 
+
+
         private void OnEnable()
         {
+
             dialogBehaviour.AddListenerToDialogFinishedEvent(DisableDialogPanel);
 
             dialogBehaviour.OnAnswerButtonSetUp += SetUpAnswerButtonsClickEvent;
@@ -36,6 +39,7 @@ namespace cherrydev
 
         private void OnDisable()
         {
+
             dialogBehaviour.OnAnswerButtonSetUp -= SetUpAnswerButtonsClickEvent;
 
             dialogBehaviour.OnDialogTextCharWrote -= dialogSentensePanel.IncreaseMaxVisibleCharacters;

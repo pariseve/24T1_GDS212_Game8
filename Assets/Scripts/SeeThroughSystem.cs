@@ -23,11 +23,11 @@ public class SeeThroughSystem : MonoBehaviour
     {
         if (isBehindWall)
         {
-            GetComponent<Renderer>().material = transparentMaterial;
+            GetComponentInChildren<Renderer>().material = transparentMaterial;
         }
         else
         {
-            GetComponent<Renderer>().material = myMaterial;
+            GetComponentInChildren<Renderer>().material = myMaterial;
         }
     }
 

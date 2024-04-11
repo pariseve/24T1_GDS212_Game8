@@ -1,4 +1,5 @@
 using UnityEngine;
+using cherrydev;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isSprinting = false;
 
+    private DialogBehaviour dialogBehaviour;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,12 +30,18 @@ public class PlayerController : MonoBehaviour
         rb.useGravity = false; // Disable default gravity
 
         itemCollection = GetComponent<ItemCollection>();
+
+        // Find the DialogDisplayer component in the scene
+        dialogBehaviour = FindObjectOfType<DialogBehaviour>();
     }
 
     void FixedUpdate()
     {
-        MoveCharacter();
-        UpdateSprite();
+        if (!dialogBehaviour.isTalking) // Check if the player is not talking
+        {
+            MoveCharacter();
+            UpdateSprite();
+        }
     }
 
     void MoveCharacter()

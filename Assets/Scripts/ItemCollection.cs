@@ -84,13 +84,13 @@ public class ItemCollection : MonoBehaviour
     private void AddStarDust()
     {
         stardustAmount += 10;
-        stardustText.text = stardustAmount.ToString() + "%";
+        stardustText.text = stardustAmount.ToString();
     }
 
     public void RemoveStarDust()
     {
         stardustAmount -= 10;
-        stardustText.text = stardustAmount.ToString() + "%";
+        stardustText.text = stardustAmount.ToString();
 
         if (stardustAmount == 0)
         {
