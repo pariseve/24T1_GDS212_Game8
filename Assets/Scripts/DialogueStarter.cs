@@ -13,6 +13,9 @@ public class DialogueStarter : MonoBehaviour
 
     [SerializeField] private UnityEvent triggerEvent;
     [SerializeField] private UnityEvent triggerEvent2;
+    [SerializeField] private UnityEvent triggerEvent3;
+
+    EndingTrigger ending;
 
     public GameObject tutorialStar;
 
@@ -50,7 +53,28 @@ public class DialogueStarter : MonoBehaviour
         triggerEvent2.Invoke();
     }
 
+    private void Function3()
+    {
+        triggerEvent3.Invoke();
+    }
+
     public void SecondDialogue()
+    {
+        if (hasFollowedTutorial)
+        {
+            Debug.Log("Triggered Second Dialogue!");
+            dialogBehaviour.BindExternalFunction("Test", DebugExternal);
+            dialogBehaviour.BindExternalFunction("function1", Function);
+            dialogBehaviour.BindExternalFunction("function2", Function2);
+            dialogBehaviour.StartDialog(introDialogue2);
+        }
+        else
+        {
+            Debug.Log("Second dialogue condition not met!");
+        }
+    }
+
+    public void FinalDialogue()
     {
         if (hasFollowedTutorial)
         {
